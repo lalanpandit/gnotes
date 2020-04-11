@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
 
   get f() { return this.noteForm.controls; }
 
+  // Add new note
   saveNote = () => {
     this.submitted = true;
 
@@ -59,7 +60,7 @@ export class DashboardComponent implements OnInit {
     this.isUpdate = false;
   }
 
-  // Delete single Note
+  // Delete Note
   deleteNote = (index: number) => {
     this.noteList.splice(index, 1);
   }

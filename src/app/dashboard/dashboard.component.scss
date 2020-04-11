@@ -2,7 +2,9 @@ $borderColor: #ddd;
 nav {
     border: 1px solid $borderColor;
 }
-
+.alert-dark {
+    background-color: #f8f9fa;
+}
 .dashboard {
     aside {
         height: calc(100vh - 58px);
