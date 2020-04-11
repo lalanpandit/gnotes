@@ -1,0 +1,17 @@
+<div class="container h-100">
+    <div class="login_cta d-flex align-items-center justify-content-center">
+        <div class="card p-4">
+            <h1>Login</h1>
+            <form (ngSubmit)="doLogin()" [formGroup]="loginForm">
+                <div class="form-group">
+                    <input type="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class="form-control" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" class="form-control" placeholder="Password">
+                    <p class="text-danger mb-0" *ngIf="error">{{error}}</p>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

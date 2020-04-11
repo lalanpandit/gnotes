@@ -1,0 +1,18 @@
+.login_cta {
+    height: 100vh;
+    .card {
+        max-width: 380px;
+        width: 100%;
+        border: 0;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+        h1 {
+            font-size: 26px;
+            margin-bottom: 24px;
+        }
+        .btn-primary {
+            height: 45px;
+            text-transform: uppercase;
+            font-size: 17px;
+        }
+    }
+}

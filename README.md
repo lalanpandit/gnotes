@@ -1,3 +1,9 @@
+
+# Setup Project follow blow steps
+1 Run `npm install`. (Note: Make sure Node and angular CLI is installed in your machine).
+2 Run `ng serve` for a dev server.
+3 For Login email:- gnote@gmail.com and password:- 123456
+
 # Gnotes
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.

@@ -1,0 +1,55 @@
+<!-- Header Start -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink=".">G Notes</a>
+    <a class="navbar-brand ml-auto" routerLink="." (click)="doLogout()">Logout</a>
+</nav>
+<!-- Header End -->
+
+<section class="dashboard d-flex">
+    <!-- Left Sidebar Satrt -->
+    <aside>
+        <div class="list-group">
+            <ul class="p-0 m-0">
+                <li class="position-relative" *ngFor="let note of noteList; let i = index">
+                    <a routerLink="." (click)="editNote(note, i)" class="list-group-item list-group-item-action">
+                        <h2>{{note.title}}</h2>
+                        <p>{{note.body | summery: 85}}<span *ngIf="note.body?.length > 85">...</span></p>
+                    </a>
+                    <a routerLink="." (click)="deleteNote(i)" class="delete_note"> <i class="fa fa-times" aria-hidden="true"></i></a>
+                </li>
+                <li *ngIf="noteList?.length === 0" class="no_found p-3">
+                    <div class="alert alert-dark mb-0" role="alert">
+                        No Notes found
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </aside>
+    <!-- Left Sidebar End -->
+
+    <!-- Add note form start  -->
+    <div class="rigth_content p-4">
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-light" (click)="isAddNote = !isAddNote"><i class="fa fa-plus" aria-hidden="true"></i>
+            Add Note</button>
+        </div>
+        <div class="form_cta" *ngIf="isAddNote">
+            <form [formGroup]="noteForm">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="email" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" class="form-control" id="title">
+                </div>
+                <div class="form-group">
+                    <label for="body">Body:</label>
+                    <textarea class="form-control" formControlName="body" [ngClass]="{ 'is-invalid': submitted && f.body.errors }" rows="10"></textarea>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" (click)="saveNote()" *ngIf="!isUpdate" class="btn btn-primary">Save</button>
+                    <button type="submit" (click)="updateNote()" *ngIf="isUpdate" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Add note form end  -->
+</section>
